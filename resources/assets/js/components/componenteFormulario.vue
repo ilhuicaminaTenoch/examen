@@ -1,60 +1,71 @@
 <template>
-    <div class="container">
-        <h2>Conexión con GitHuib</h2>
-        <div class="panel panel-default">
+    <div class="container-fluid">
+        <div class="animated fadeIn">
             <div class="row">
-                <div class="col-md-6">
-                    <h3>Formulario</h3>
-                    <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
-                        <div class="form-group row">
-                            <label class="col-md-3 form-control-label" for="text-input">Título (*)</label>
-                            <div class="col-md-9">
-                                <input type="text" v-model="nombre" class="form-control" placeholder="Ingrese Título">
-
-                            </div>
+                <div class="col-sm-12 col-xl-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <i class="fa fa-align-justify"></i> Conexión con GitHub
                         </div>
-                        <div class="form-group row">
-                            <label class="col-md-3 form-control-label" for="email-input">Descripción (*)</label>
-                            <div class="col-md-9">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
+                                        <div class="form-group row">
+                                            <label class="col-md-3 form-control-label" for="text-input">Título (*)</label>
+                                            <div class="col-md-9">
+                                                <input type="text" v-model="nombre" class="form-control"
+                                                       placeholder="Ingrese Título">
+
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-md-3 form-control-label" for="email-input">Descripción
+                                                (*)</label>
+                                            <div class="col-md-9">
                                 <textarea v-model="descripcion" class="form-control"
                                           placeholder="Ingrese Descripcion"></textarea>
 
+                                            </div>
+                                        </div>
+
+                                        <div v-show="errorGit">
+                                            <div v-for="error in errorMostrarMensajeGit" class="alert alert-danger">
+                                                <strong v-text="error"></strong>
+                                            </div>
+                                        </div>
+
+                                        <button type="button" class="btn btn-secondary" @click="enviar()">Enviar</button>
+                                    </form>
+                                </div>
+                                <div class="col-md-6">
+                                    <h3>Listado de issue</h3>
+                                    <table class="table">
+                                        <thead>
+                                        <tr>
+                                            <th scope="col">#</th>
+                                            <th scope="col">Título</th>
+                                            <th scope="col">Descripción</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr v-for="issue in arrayRespuesta" :key="issue.id">
+                                            <th scope="row" v-text="issue.id"></th>
+                                            <td v-text="issue.title"></td>
+                                            <td v-text="issue.body"></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
+
                         </div>
 
-                        <div v-show="errorGit">
-                            <div v-for="error in errorMostrarMensajeGit" class="alert alert-danger">
-                                <strong v-text="error"></strong>
-                            </div>
-                        </div>
-
-                        <button type="button" class="btn btn-secondary" @click="enviar()">Enviar</button>
-                    </form>
-                </div>
-                <div class="col-md-6">
-                    <h3>Listado de issue</h3>
-                    <table class="table">
-                        <thead>
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Título</th>
-                            <th scope="col">Descripción</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr v-for="issue in arrayRespuesta" :key="issue.id">
-                            <th scope="row" v-text="issue.id"></th>
-                            <td v-text="issue.title"></td>
-                            <td v-text="issue.body"></td>
-                        </tr>
-                        </tbody>
-                    </table>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-
-
 </template>
 
 <script>

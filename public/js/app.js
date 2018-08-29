@@ -47400,6 +47400,17 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -47466,152 +47477,175 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container" }, [
-    _c("h2", [_vm._v("Conexión con GitHuib")]),
-    _vm._v(" "),
-    _c("div", { staticClass: "panel panel-default" }, [
+  return _c("div", { staticClass: "container-fluid" }, [
+    _c("div", { staticClass: "animated fadeIn" }, [
       _c("div", { staticClass: "row" }, [
-        _c("div", { staticClass: "col-md-6" }, [
-          _c("h3", [_vm._v("Formulario")]),
-          _vm._v(" "),
-          _c(
-            "form",
-            {
-              staticClass: "form-horizontal",
-              attrs: {
-                action: "",
-                method: "post",
-                enctype: "multipart/form-data"
-              }
-            },
-            [
-              _c("div", { staticClass: "form-group row" }, [
-                _c(
-                  "label",
-                  {
-                    staticClass: "col-md-3 form-control-label",
-                    attrs: { for: "text-input" }
-                  },
-                  [_vm._v("Título (*)")]
-                ),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-md-9" }, [
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.nombre,
-                        expression: "nombre"
-                      }
-                    ],
-                    staticClass: "form-control",
-                    attrs: { type: "text", placeholder: "Ingrese Título" },
-                    domProps: { value: _vm.nombre },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.nombre = $event.target.value
-                      }
-                    }
-                  })
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "form-group row" }, [
-                _c(
-                  "label",
-                  {
-                    staticClass: "col-md-3 form-control-label",
-                    attrs: { for: "email-input" }
-                  },
-                  [_vm._v("Descripción (*)")]
-                ),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-md-9" }, [
-                  _c("textarea", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.descripcion,
-                        expression: "descripcion"
-                      }
-                    ],
-                    staticClass: "form-control",
-                    attrs: { placeholder: "Ingrese Descripcion" },
-                    domProps: { value: _vm.descripcion },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.descripcion = $event.target.value
-                      }
-                    }
-                  })
-                ])
-              ]),
-              _vm._v(" "),
-              _c(
-                "div",
-                {
-                  directives: [
-                    {
-                      name: "show",
-                      rawName: "v-show",
-                      value: _vm.errorGit,
-                      expression: "errorGit"
-                    }
-                  ]
-                },
-                _vm._l(_vm.errorMostrarMensajeGit, function(error) {
-                  return _c("div", { staticClass: "alert alert-danger" }, [
-                    _c("strong", { domProps: { textContent: _vm._s(error) } })
-                  ])
-                })
-              ),
-              _vm._v(" "),
-              _c(
-                "button",
-                {
-                  staticClass: "btn btn-secondary",
-                  attrs: { type: "button" },
-                  on: {
-                    click: function($event) {
-                      _vm.enviar()
-                    }
-                  }
-                },
-                [_vm._v("Enviar")]
-              )
-            ]
-          )
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-md-6" }, [
-          _c("h3", [_vm._v("Listado de issue")]),
-          _vm._v(" "),
-          _c("table", { staticClass: "table" }, [
+        _c("div", { staticClass: "col-sm-12 col-xl-12" }, [
+          _c("div", { staticClass: "card" }, [
             _vm._m(0),
             _vm._v(" "),
-            _c(
-              "tbody",
-              _vm._l(_vm.arrayRespuesta, function(issue) {
-                return _c("tr", { key: issue.id }, [
-                  _c("th", {
-                    attrs: { scope: "row" },
-                    domProps: { textContent: _vm._s(issue.id) }
-                  }),
+            _c("div", { staticClass: "card-body" }, [
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col-md-6" }, [
+                  _c(
+                    "form",
+                    {
+                      staticClass: "form-horizontal",
+                      attrs: {
+                        action: "",
+                        method: "post",
+                        enctype: "multipart/form-data"
+                      }
+                    },
+                    [
+                      _c("div", { staticClass: "form-group row" }, [
+                        _c(
+                          "label",
+                          {
+                            staticClass: "col-md-3 form-control-label",
+                            attrs: { for: "text-input" }
+                          },
+                          [_vm._v("Título (*)")]
+                        ),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-md-9" }, [
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.nombre,
+                                expression: "nombre"
+                              }
+                            ],
+                            staticClass: "form-control",
+                            attrs: {
+                              type: "text",
+                              placeholder: "Ingrese Título"
+                            },
+                            domProps: { value: _vm.nombre },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.nombre = $event.target.value
+                              }
+                            }
+                          })
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "form-group row" }, [
+                        _c(
+                          "label",
+                          {
+                            staticClass: "col-md-3 form-control-label",
+                            attrs: { for: "email-input" }
+                          },
+                          [
+                            _vm._v(
+                              "Descripción\n                                            (*)"
+                            )
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-md-9" }, [
+                          _c("textarea", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.descripcion,
+                                expression: "descripcion"
+                              }
+                            ],
+                            staticClass: "form-control",
+                            attrs: { placeholder: "Ingrese Descripcion" },
+                            domProps: { value: _vm.descripcion },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.descripcion = $event.target.value
+                              }
+                            }
+                          })
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          directives: [
+                            {
+                              name: "show",
+                              rawName: "v-show",
+                              value: _vm.errorGit,
+                              expression: "errorGit"
+                            }
+                          ]
+                        },
+                        _vm._l(_vm.errorMostrarMensajeGit, function(error) {
+                          return _c(
+                            "div",
+                            { staticClass: "alert alert-danger" },
+                            [
+                              _c("strong", {
+                                domProps: { textContent: _vm._s(error) }
+                              })
+                            ]
+                          )
+                        })
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "button",
+                        {
+                          staticClass: "btn btn-secondary",
+                          attrs: { type: "button" },
+                          on: {
+                            click: function($event) {
+                              _vm.enviar()
+                            }
+                          }
+                        },
+                        [_vm._v("Enviar")]
+                      )
+                    ]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-md-6" }, [
+                  _c("h3", [_vm._v("Listado de issue")]),
                   _vm._v(" "),
-                  _c("td", { domProps: { textContent: _vm._s(issue.title) } }),
-                  _vm._v(" "),
-                  _c("td", { domProps: { textContent: _vm._s(issue.body) } })
+                  _c("table", { staticClass: "table" }, [
+                    _vm._m(1),
+                    _vm._v(" "),
+                    _c(
+                      "tbody",
+                      _vm._l(_vm.arrayRespuesta, function(issue) {
+                        return _c("tr", { key: issue.id }, [
+                          _c("th", {
+                            attrs: { scope: "row" },
+                            domProps: { textContent: _vm._s(issue.id) }
+                          }),
+                          _vm._v(" "),
+                          _c("td", {
+                            domProps: { textContent: _vm._s(issue.title) }
+                          }),
+                          _vm._v(" "),
+                          _c("td", {
+                            domProps: { textContent: _vm._s(issue.body) }
+                          })
+                        ])
+                      })
+                    )
+                  ])
                 ])
-              })
-            )
+              ])
+            ])
           ])
         ])
       ])
@@ -47619,6 +47653,15 @@ var render = function() {
   ])
 }
 var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card-header" }, [
+      _c("i", { staticClass: "fa fa-align-justify" }),
+      _vm._v(" Conexión con GitHub\n                    ")
+    ])
+  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
