@@ -3,8 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Symfony\Component\Process\Process;
-use Symfony\Component\Process\Exception\ProcessFailedException;
+
 
 class EnvioController extends Controller
 {
@@ -13,14 +12,18 @@ class EnvioController extends Controller
         $titulo = $request->titulo;
         $descricion = $request->descripcion;
 
-        exec('git commit -m \' Se sube una prueba\'');
+        $cliente = new \Github\Client();
+        $cliente->authenticate('ilhuicaminaTenoch','$zerocoolmane371986$',\Github\Client::AUTH_HTTP_PASSWORD);
+        //$issues = $cliente->api('issue')->all('ilhuicaminaTenoch', 'examen', array('state' => 'open'));
+        $cliente->api('issue')->create('ilhuicaminaTenoch', 'examen', array('title' => $titulo, 'body' => $descricion));
 
-        /*$proceso = new Process(array('ls', '-la'));
-        $proceso->run();
-        if (!$proceso->isSuccessful()){
-            throw new ProcessFailedException($proceso);
-        }*/
+        return;
+    }
 
-        //return ['respuesta' => $proceso->getOutput()];
+    public function listar(Request $request){
+        $cliente = new \Github\Client();
+        $issues = $cliente->api('issue')->all('ilhuicaminaTenoch', 'examen', array('state' => 'open'));
+        return ['issue' => $issues];
+
     }
 }

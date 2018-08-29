@@ -16,3 +16,4 @@ Route::get('/', function () {
 });
 
 Route::post('/enviar','EnvioController@index');
+Route::get('/listar-issue','EnvioController@listar');
